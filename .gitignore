@@ -1,0 +1,15 @@
+AT*/*.iml
+AT*/.gradle
+AT*/local.properties
+AT*/.idea/caches
+AT*/.idea/libraries
+AT*/.idea/modules.xml
+AT*/.idea/workspace.xml
+AT*/.idea/navEditor.xml
+AT*/.idea/assetWizardSettings.xml
+AT*/.DS_Store
+AT*/build
+AT*/captures
+AT*/.externalNativeBuild
+AT*/.cxx
+AT*/local.properties
