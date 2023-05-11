@@ -6,12 +6,11 @@ import android.speech.tts.TextToSpeech
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
-import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import org.w3c.dom.Text
 import java.util.*
 import android.content.Intent
+import android.widget.Button
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListener {
@@ -20,6 +19,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListen
     private lateinit var edtPessoas: EditText
     private lateinit var tvResultado: TextView
     private lateinit var fabCompartilhar: FloatingActionButton
+    private lateinit var btFalar: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListen
         edtPessoas = findViewById(R.id.edtPessoas)
         tvResultado = findViewById(R.id.tvResultado)
         fabCompartilhar = findViewById(R.id.fabCompartilhar)
+        btFalar = findViewById(R.id.btFalar)
 
         edtConta.addTextChangedListener(this)
         edtPessoas.addTextChangedListener(this)
@@ -46,23 +47,24 @@ class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListen
     }
 
     override fun afterTextChanged(s: Editable?) {
-//        Log.d ("PDM23", "Depois de mudar")
-//        Log.d ("PDM23", s.toString())
         var valor: String = calculate()
-        tvResultado.setText(valor)
+        if (!valor.isEmpty()) {
+            tvResultado.setText(valor+" para cada um")
 
-        fabCompartilhar.setOnClickListener {
-            val intent = Intent()
-            intent.action = Intent.ACTION_SEND
-            intent.putExtra(Intent.EXTRA_TEXT,"O valor da conta fica ${valor}")
-            intent.type="text/plain"
-            startActivity(Intent.createChooser(intent,"Compartilhar com:"))
+            fabCompartilhar.setOnClickListener {
+                val intent = Intent()
+                intent.action = Intent.ACTION_SEND
+                intent.putExtra(Intent.EXTRA_TEXT, "O valor da conta fica $valor para cada um")
+                intent.type = "text/plain"
+                startActivity(Intent.createChooser(intent, "Compartilhar com:"))
+            }
+
+            btFalar.setOnClickListener {
+                tts.speak("$valor", TextToSpeech.QUEUE_FLUSH, null, null)
+            }
         }
     }
 
-    fun clickFalar(v: View){
-        tts.speak("Oi Sumido", TextToSpeech.QUEUE_FLUSH, null, null)
-    }
     override fun onDestroy() {
             // Release TTS engine resources
             tts.stop()
@@ -93,7 +95,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListen
         resultado = String.format("%.2f", resultado).toDouble()
         Log.d ("PDM23", "$resultado")
 
-        return String.format("RS %.2f para cada um", resultado)
+        return "$resultado"
     }
 }
 

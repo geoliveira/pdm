@@ -21,5 +21,10 @@
             </intent-filter>
         </activity>
     </application>
-
+    <!-- tablet emulator is running API 30 -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
 </manifest>
