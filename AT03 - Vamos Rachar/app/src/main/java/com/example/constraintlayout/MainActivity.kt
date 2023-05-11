@@ -11,12 +11,15 @@ import android.widget.EditText
 import android.widget.TextView
 import org.w3c.dom.Text
 import java.util.*
+import android.content.Intent
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListener {
     private lateinit var tts: TextToSpeech
     private lateinit var edtConta: EditText
     private lateinit var edtPessoas: EditText
     private lateinit var tvResultado: TextView
+    private lateinit var fabCompartilhar: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +28,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListen
         edtConta = findViewById(R.id.edtConta)
         edtPessoas = findViewById(R.id.edtPessoas)
         tvResultado = findViewById(R.id.tvResultado)
+        fabCompartilhar = findViewById(R.id.fabCompartilhar)
 
         edtConta.addTextChangedListener(this)
         edtPessoas.addTextChangedListener(this)
@@ -44,14 +48,20 @@ class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListen
     override fun afterTextChanged(s: Editable?) {
 //        Log.d ("PDM23", "Depois de mudar")
 //        Log.d ("PDM23", s.toString())
-        tvResultado.setText(calculate())
+        var valor: String = calculate()
+        tvResultado.setText(valor)
+
+        fabCompartilhar.setOnClickListener {
+            val intent = Intent()
+            intent.action = Intent.ACTION_SEND
+            intent.putExtra(Intent.EXTRA_TEXT,"O valor da conta fica ${valor}")
+            intent.type="text/plain"
+            startActivity(Intent.createChooser(intent,"Compartilhar com:"))
+        }
     }
 
     fun clickFalar(v: View){
-
         tts.speak("Oi Sumido", TextToSpeech.QUEUE_FLUSH, null, null)
-
-
     }
     override fun onDestroy() {
             // Release TTS engine resources
@@ -83,7 +93,7 @@ class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListen
         resultado = String.format("%.2f", resultado).toDouble()
         Log.d ("PDM23", "$resultado")
 
-        return String.format("RS %.2f\npara cada um", resultado)
+        return String.format("RS %.2f para cada um", resultado)
     }
 }
 

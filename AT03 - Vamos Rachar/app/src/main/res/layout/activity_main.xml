@@ -18,33 +18,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
-<!--    <Button-->
-<!--        android:id="@+id/btFalar"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginEnd="50dp"-->
-<!--        android:onClick="clickFalar"-->
-<!--        android:text="Falar"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/button4"-->
-<!--        app:layout_constraintHorizontal_bias="0.5"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/button4" />-->
-
-<!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--        android:id="@+id/floatingActionButton"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="84dp"-->
-<!--        android:layout_marginEnd="70dp"-->
-<!--        android:layout_marginBottom="83dp"-->
-<!--        android:clickable="true"-->
-<!--        android:importantForAccessibility="no"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/button4"-->
-<!--        app:srcCompat="?attr/actionModeShareDrawable" />-->
-
-<!--    <Button-->
+    <!--    <Button-->
 <!--        android:id="@+id/button4"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
@@ -56,6 +30,36 @@
 <!--        app:layout_constraintHorizontal_bias="0.5"-->
 <!--        app:layout_constraintStart_toEndOf="@+id/btFalar"-->
 <!--        app:layout_constraintTop_toBottomOf="@+id/tvResultado" />-->
+
+    <Button
+        android:id="@+id/btFalar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="72dp"
+        android:layout_marginEnd="125dp"
+        android:onClick="clickFalar"
+        android:text="Falar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/fabCompartilhar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResultado"
+        app:layout_constraintVertical_bias="0.26999998" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCompartilhar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
+        android:clickable="true"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.816"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvResultado"
+        app:layout_constraintVertical_bias="0.702"
+        app:srcCompat="?attr/actionModeShareDrawable" />
 
     <EditText
         android:id="@+id/edtPessoas"
