@@ -49,12 +49,12 @@ class MainActivity : AppCompatActivity(), TextWatcher, TextToSpeech.OnInitListen
     override fun afterTextChanged(s: Editable?) {
         var valor: String = calculate()
         if (!valor.isEmpty()) {
-            tvResultado.setText(valor+" para cada um")
+            tvResultado.setText("R$ "+valor+" para cada um")
 
             fabCompartilhar.setOnClickListener {
                 val intent = Intent()
                 intent.action = Intent.ACTION_SEND
-                intent.putExtra(Intent.EXTRA_TEXT, "O valor da conta fica $valor para cada um")
+                intent.putExtra(Intent.EXTRA_TEXT, "O valor da conta fica R$ $valor para cada um")
                 intent.type = "text/plain"
                 startActivity(Intent.createChooser(intent, "Compartilhar com:"))
             }
