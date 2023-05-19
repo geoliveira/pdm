@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F39E9E"
     tools:context=".MainActivity">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
         android:text="AT03 - Vamos Rachar"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/edtConta"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,6 +56,9 @@
         android:ems="10"
         android:hint="Quantidade de pessoas"
         android:inputType="number"
+        android:minHeight="48dp"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -62,11 +67,14 @@
     <EditText
         android:id="@+id/edtConta"
         android:layout_width="wrap_content"
-        android:layout_height="45dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
         android:ems="10"
         android:hint="Valor da conta"
         android:inputType="numberDecimal"
+        android:minHeight="48dp"
+        android:textColorHint="@color/black"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/edtPessoas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
