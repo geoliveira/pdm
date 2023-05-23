@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Alternative Resources Example</string>
+    <string name="aumente_a_fonte">Increase Font Size</string>
+    <string name="ol_mundo">Hello World</string>
+</resources>
