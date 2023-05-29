@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Vamos Rachar</string>
+    <string name="app_titulo">AT03 - Vamos Rachar</string>
+    <string name="app_valorConta">Valor da conta</string>
+    <string name="app_qtdPessoas">Quantidade de pessoas</string>
+    <string name="app_bFalar">Falar</string>
+    <string name="app_modoNoturno">Modo Noturno</string>
 </resources>

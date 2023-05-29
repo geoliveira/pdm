@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Let\'s split</string>
+    <string name="app_titulo">AT03 - Let\'s split</string>
+    <string name="app_valorConta">The bill</string>
+    <string name="app_qtdPessoas">How many people</string>
+    <string name="app_bFalar">Speak</string>
+    <string name="app_modoNoturno">Mode Night</string>
+</resources>
