@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Switch
+import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : AppCompatActivity() {
     internal var percentual:Double = 0.0
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
         val editTextAlcool: EditText = findViewById(R.id.edGasolina)
         val switchPercentual: Switch = findViewById(R.id.swPercentual)
         val buttonCalcular: Button = findViewById(R.id.btCalcular)
+        val swModoNoturno: Switch = findViewById(R.id.modoNoturno)
 
         if (savedInstanceState != null) {
             percentual = savedInstanceState.getDouble("percentual")
@@ -59,6 +61,10 @@ class MainActivity : AppCompatActivity() {
             Log.d("PDM23", "No editTextAlcool, $precoAlcool")
             Log.d("PDM23", "No switchPercentual, $percentual")
             Log.d("PDM23", "O melhor combustivel, $combustivelRentavel")
+        })
+
+        swModoNoturno.setOnCheckedChangeListener({ _ , isChecked ->
+            AppCompatDelegate.setDefaultNightMode(if (isChecked) AppCompatDelegate.MODE_NIGHT_YES else AppCompatDelegate.MODE_NIGHT_NO)
         })
     }
     override fun onResume(){
